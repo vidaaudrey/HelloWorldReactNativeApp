@@ -3,6 +3,7 @@ import React, {
 }
 from 'react-native'
 import Badge from './Badge'
+import Separator from './shared/Separator'
 
 const styles = StyleSheet.create({
   container: {
@@ -43,6 +44,7 @@ class Profile extends React.Component {
               <Text style={styles.rowTitle}> {this.getRowTitle(bio, item)} </Text>
               <Text style={styles.rowContent}> {bio[item]} </Text>
             </View>
+            <Separator/>
           </View>
         )
       }
