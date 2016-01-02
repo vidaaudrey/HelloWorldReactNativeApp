@@ -67,6 +67,12 @@ class Main extends Component {
                 underlayColor="white" >
                 <Text style={styles.buttonText}> Search </Text>
             </TouchableHighlight>
+            <ActivityIndicatorIOS
+               animating={this.state.isLoading}
+               color="#111"
+               size="large">
+            </ActivityIndicatorIOS>
+           {this.state.error ? <Text> {this.state.error} </Text> : <View></View>}
         </View>
     )
   }
