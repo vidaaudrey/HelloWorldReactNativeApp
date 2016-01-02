@@ -1,8 +1,9 @@
 import React, {
   Component, Text, Image, View, StyleSheet, TextInput, TouchableHighlight, ActivityIndicatorIOS
 }
-
 from 'react-native'
+import Profile from './Profile'
+
 
 const styles = StyleSheet.create({
   container: {
@@ -37,7 +38,13 @@ class Dashboard extends Component {
     return obj;
   }
   goToProfile() {
-    console.log('Going to Profile Page');
+    this.props.navigator.push({
+      component: Profile,
+      title: 'Profile Page',
+      passProps: {
+        bio: this.props.bio
+      }
+    })
   }
   goToRepos() {
     console.log('Going to Repos');
