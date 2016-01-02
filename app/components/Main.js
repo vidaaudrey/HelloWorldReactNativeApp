@@ -16,17 +16,17 @@ class Main extends Component {
       error: false
     }
 
-    // testing firebase API 
-    apiFirebase.deleteNotes('vidaaudrey', 'react-native')
-      .then((data) => console.log('data'))
+    // testing firebase API, run this to clean the database
+    // apiFirebase.deleteNotes('vidaaudrey', 'react-native')
+    //   .then((data) => console.log('data'))
 
-    apiFirebase.addNote('vidaaudrey', 'react-native')
-      .then((data) => {
-        console.log(data)
-        apiFirebase.getNotes('vidaaudrey')
-          .then((data) => console.log(data))
+    // apiFirebase.addNote('vidaaudrey', 'react-native')
+    //   .then((data) => {
+    //     console.log(data)
+    //     apiFirebase.getNotes('vidaaudrey')
+    //       .then((data) => console.log(data))
 
-      })
+    //   })
 
   }
 

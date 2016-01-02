@@ -4,7 +4,9 @@ import React, {
 from 'react-native'
 import Profile from './Profile'
 import apiGithub from '../utils/apiGithub'
+import apiFirebase from '../utils/apiFirebase'
 import Repos from './Repos'
+import Notes from './Notes'
 
 const styles = StyleSheet.create({
   container: {
@@ -64,6 +66,18 @@ class Dashboard extends Component {
 
   goToNotes() {
     console.log('Going to Notes');
+    apiFirebase.getNotes(this.props.bio.login)
+      .then((data) => {
+        const notes = data || {}
+        this.props.navigator.push({
+          component: Notes,
+          title: `Notes for ${this.props.bio.login}`,
+          passProps: {
+            bio: this.props.bio,
+            notes: notes
+          }
+        })
+      })
   }
   render() {
     return (
