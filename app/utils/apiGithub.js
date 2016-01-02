@@ -2,7 +2,7 @@ import api from './api'
 const githubRootUrl = 'https://api.github.com/users/'
 import configSec from '../config/configSec'
 
-const getGithubRepos = ((username) =>
+const getRepos = ((username) =>
   api.get(`${githubRootUrl}${username}/repos?access_token=${configSec.githubAccessToken}`)
 )
 
@@ -12,9 +12,9 @@ const getBio = ((username) =>
 )
 
 
-const getGithubInfo = ((username) =>
+const getInfo = ((username) =>
   Promise.all([
-    getGithubRepos(username),
+    getRepos(username),
     getBio(username)
   ]).then((values) => ({
     repos: values[0],
@@ -24,7 +24,7 @@ const getGithubInfo = ((username) =>
 
 
 export default {
-  getGithubRepos: getGithubRepos,
+  getRepos: getRepos,
   getBio: getBio,
-  getGithubInfo: getGithubInfo
+  getInfo: getInfo
 }

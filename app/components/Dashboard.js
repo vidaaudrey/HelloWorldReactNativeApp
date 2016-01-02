@@ -3,7 +3,8 @@ import React, {
 }
 from 'react-native'
 import Profile from './Profile'
-
+import apiGithub from '../utils/apiGithub'
+import Repos from './Repos'
 
 const styles = StyleSheet.create({
   container: {
@@ -48,7 +49,19 @@ class Dashboard extends Component {
   }
   goToRepos() {
     console.log('Going to Repos');
+    apiGithub.getRepos(this.props.bio.login)
+      .then((res) => {
+        this.props.navigator.push({
+          component: Repos,
+          title: 'Repos Page',
+          passProps: {
+            bio: this.props.bio,
+            repos: res
+          }
+        });
+      });
   }
+
   goToNotes() {
     console.log('Going to Notes');
   }
