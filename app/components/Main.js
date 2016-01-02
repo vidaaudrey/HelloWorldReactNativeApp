@@ -4,6 +4,7 @@ import React, {
 from 'react-native'
 import styles from '../theme/styles'
 import apiGithub from '../utils/apiGithub'
+import apiFirebase from '../utils/apiFirebase'
 import Dashboard from './Dashboard'
 
 class Main extends Component {
@@ -14,6 +15,19 @@ class Main extends Component {
       isLoading: false,
       error: false
     }
+
+    // testing firebase API 
+    apiFirebase.deleteNotes('vidaaudrey', 'react-native')
+      .then((data) => console.log('data'))
+
+    apiFirebase.addNote('vidaaudrey', 'react-native')
+      .then((data) => {
+        console.log(data)
+        apiFirebase.getNotes('vidaaudrey')
+          .then((data) => console.log(data))
+
+      })
+
   }
 
   handleChange(e) {
