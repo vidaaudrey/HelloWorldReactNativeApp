@@ -1,16 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
   Text,
   View,
   Component,
   NavigatorIOS
-} = React;
+}
+from 'react-native'
 
-var Main = require('./app/components/Main')
-var styles = require('./app/theme/styles')
+
+import Main from './app/components/Main'
+import styles from './app/theme/styles'
 
 class HelloWorldReactNativeApp extends Component {
   render() {
